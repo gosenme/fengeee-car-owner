@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+
+    <properties>
+        <Property name="LOG_DIRECTORY">logs/mis-frame-service</Property>
+        <property name="PATTERN">[%d{yyyy-MM-dd HH:mm:ss.SSS ZZZ}] [%level] [%thread] [%F:%L] %X{traceId} %msg%n</property>
+    </properties>
+
+    <appenders>
+        <Console name="CONSOLE" target="system_out">
+            <PatternLayout pattern="${PATTERN}" />
+        </Console>
+
+        <RollingFile name="InfoFile" fileName="${LOG_DIRECTORY}/mis-frame-service-info.log" filePattern="${LOG_DIRECTORY}/info-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="${PATTERN}" />
+            <TimeBasedTriggeringPolicy />
+        </RollingFile>
+
+        <RollingFile name="ErrorFile" fileName="${LOG_DIRECTORY}/mis-frame-service-error.log" filePattern="${LOG_DIRECTORY}/error-%d{yyyy-MM-dd}.log">
+            <Filters>
+                <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+            <PatternLayout pattern="${PATTERN}" />
+            <TimeBasedTriggeringPolicy />
+        </RollingFile>
+    </appenders>
+
+    <loggers>
+        <logger name="com.roncoo.education" level="debug" />
+        <root level="info">
+            <appenderref ref="CONSOLE" />
+            <AppenderRef ref="InfoFile" />
+            <AppenderRef ref="ErrorFile" />
+        </root>
+    </loggers>
+
+</configuration>

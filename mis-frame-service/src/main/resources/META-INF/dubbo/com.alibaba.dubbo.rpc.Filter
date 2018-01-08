@@ -1,0 +1,4 @@
+misDubboExceptionFilter=com.seewo.mis.frame.filter.MisDubboExceptionFilter
+misDubboProviderLogFilter=com.seewo.mis.frame.filter.MisDubboProviderLogFilter
+misDubboConsumerLogFilter=com.seewo.mis.frame.filter.MisDubboConsumerLogFilter
+misDubboValidationFilter=com.seewo.mis.frame.filter.MisDubboValidationFilter
