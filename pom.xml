@@ -5,7 +5,7 @@
     <modelVersion>4.0.0
     </modelVersion>
     <groupId>com.seewo.mis.frame</groupId>
-    <artifactId>seewo-mis-frame</artifactId>
+    <artifactId>seewo-mis-frame-server</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>mis-frame</name>
