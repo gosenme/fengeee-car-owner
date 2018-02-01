@@ -19,7 +19,7 @@ import java.io.IOException;
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.seewo.mis"})
 @MapperScan("com.seewo.mis.frame.dal.mapper")
-public class MisFrameServerApplication {
+public class MisApplication {
 
     /**
      * 主类启动方法
@@ -27,7 +27,7 @@ public class MisFrameServerApplication {
      * @param args args
      */
     public static void main(String[] args) {
-        SpringApplication.run(MisFrameServerApplication.class, args);
+        SpringApplication.run(MisApplication.class, args);
         try {
             System.in.read();
             log.info("project Startup success ");
