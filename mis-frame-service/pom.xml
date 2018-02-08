@@ -90,10 +90,6 @@
             <groupId>com.seewo.mis</groupId>
             <artifactId>mis-frame-redis-boot-starter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.seewo.mis.authentication</groupId>
-            <artifactId>mis-authentication-service-api</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
@@ -143,9 +139,7 @@
                         <configuration>
                             <type>jar</type>
                             <includeTypes>jar</includeTypes>
-                            <outputDirectory>
-                                ${project.build.directory}/lib
-                            </outputDirectory>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>

@@ -2,13 +2,13 @@
         xmlns="http://maven.apache.org/POM/4.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0
-    </modelVersion>
+    <modelVersion>4.0.0</modelVersion>
     <groupId>com.seewo.mis.frame</groupId>
     <artifactId>seewo-mis-frame-server</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>mis-frame</name>
+
     <modules>
         <module>mis-frame-common</module>
         <module>mis-frame-dal</module>
@@ -69,6 +69,15 @@
         <commons-lang3.version>3.5</commons-lang3.version>
         <guava.version>19.0</guava.version>
         <mis-authentication-service-api.version>0.0.1-SNAPSHOT</mis-authentication-service-api.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <mis-frame-redis-boot-starter.version>1.0-SNAPSHOT</mis-frame-redis-boot-starter.version>
+        <javax.el.version>2.2.4</javax.el.version>
+        <javax.el-api.version>3.0.1-b04</javax.el-api.version>
+        <validation-api.version>2.0.0.Final</validation-api.version>
+        <hibernate-validator.version>6.0.3.Final</hibernate-validator.version>
+        <fastjson.version>1.2.41</fastjson.version>
+        <log4j-api.version>2.7</log4j-api.version>
+        <seewo-mis-common.version>1.0-SNAPSHOT</seewo-mis-common.version>
     </properties>
 
     <dependencyManagement>
@@ -101,13 +110,19 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j-api.version}</version>
             </dependency>
+            <!--log4j-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j-api.version}</version>
+            </dependency>
             <!--jetbrains-->
             <dependency>
                 <groupId>org.jetbrains</groupId>
                 <artifactId>annotations</artifactId>
                 <version>${annotations.version}</version>
             </dependency>
-            <!--dubbo-->
+            <!--alibaba-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>dubbo</artifactId>
@@ -118,7 +133,12 @@
                 <artifactId>spring-boot-starter-dubbo</artifactId>
                 <version>${spring-boot-starter-dubbo.version}</version>
             </dependency>
-            <!--mybatis-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!--mis mybatis-->
             <dependency>
                 <groupId>com.seewo</groupId>
                 <artifactId>mis-frame-mybatis-boot-starter</artifactId>
@@ -142,49 +162,44 @@
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
-            <!--fastjson-->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>1.2.41</version>
-            </dependency>
             <!--validator-->
             <dependency>
                 <groupId>org.hibernate.validator</groupId>
                 <artifactId>hibernate-validator</artifactId>
-                <version>6.0.3.Final</version>
+                <version>${hibernate-validator.version}</version>
             </dependency>
             <dependency>
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
-                <version>2.0.0.Final</version>
+                <version>${validation-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>javax.el</groupId>
                 <artifactId>javax.el-api</artifactId>
-                <version>3.0.1-b04</version>
+                <version>${javax.el-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.glassfish.web</groupId>
                 <artifactId>javax.el</artifactId>
-                <version>2.2.4</version>
+                <version>${javax.el.version}</version>
             </dependency>
-            <!--redis-->
+            <!--mis redis-->
             <dependency>
                 <groupId>com.seewo.mis</groupId>
                 <artifactId>mis-frame-redis-boot-starter</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>${mis-frame-redis-boot-starter.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/commons-collections/commons-collections -->
             <dependency>
-                <groupId>com.seewo.mis.authentication</groupId>
-                <artifactId>mis-authentication-service-api</artifactId>
-                <version>${mis-authentication-service-api.version}</version>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
             </dependency>
-
+            <!--mis common-->
             <dependency>
-                <groupId>com.seewo.mis</groupId>
-                <artifactId>seewo-mis-api</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <groupId>com.seewo.mis.common</groupId>
+                <artifactId>seewo-mis-common</artifactId>
+                <version>${seewo-mis-common.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -210,6 +225,11 @@
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <!--mis common-->
+        <dependency>
+            <groupId>com.seewo.mis.common</groupId>
+            <artifactId>seewo-mis-common</artifactId>
         </dependency>
     </dependencies>
 

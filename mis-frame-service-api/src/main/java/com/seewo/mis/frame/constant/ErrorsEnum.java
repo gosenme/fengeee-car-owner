@@ -1,5 +1,6 @@
 package com.seewo.mis.frame.constant;
 
+import com.seewo.mis.common.exception.BaseErrorEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -8,11 +9,13 @@ import lombok.Getter;
  * 1.成功返回码 000000
  * 2.未知异常返回码 999999
  * 3.错误码的前两位标识业务系统,目前暂定如下:
- *   01:mis后台[脚手架项目使用此编码做demo]
+ *   01:mis
  *   02:集控
  *   03:录播
  *   04:环境监测
  *   05:mis数据中心
+ *   06:权限服务
+ *   07:中控
  *   ...
  * 4.错误码中间两位
  *   00:业务校验不通过
@@ -29,7 +32,7 @@ import lombok.Getter;
  */
 @AllArgsConstructor
 @Getter
-public enum ErrorsEnum {
+public enum ErrorsEnum implements BaseErrorEnum{
     /**请求成功*/
     SUCCESS("000000", "success"),
     /**入参校验失败*/

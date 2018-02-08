@@ -1,7 +1,7 @@
 package com.seewo.mis.frame.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.seewo.mis.frame.common.exception.BaseException;
+import com.seewo.mis.common.exception.BaseException;
 import com.seewo.mis.frame.common.util.IPUtils;
 import com.seewo.mis.frame.common.util.IdWorker;
 import com.seewo.mis.frame.service.IdWorkerService;

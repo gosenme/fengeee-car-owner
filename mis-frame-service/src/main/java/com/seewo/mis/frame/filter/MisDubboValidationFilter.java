@@ -11,7 +11,7 @@ import com.alibaba.dubbo.rpc.RpcException;
 import com.alibaba.dubbo.rpc.RpcResult;
 import com.alibaba.dubbo.validation.Validation;
 import com.alibaba.dubbo.validation.Validator;
-import com.seewo.mis.frame.BaseResponse;
+import com.seewo.mis.common.response.BaseResponse;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.validation.ConstraintViolationException;

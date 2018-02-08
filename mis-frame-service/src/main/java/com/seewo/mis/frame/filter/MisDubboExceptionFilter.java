@@ -8,7 +8,7 @@ import com.alibaba.dubbo.rpc.Invoker;
 import com.alibaba.dubbo.rpc.Result;
 import com.alibaba.dubbo.rpc.RpcException;
 import com.alibaba.dubbo.rpc.RpcResult;
-import com.seewo.mis.frame.common.exception.BaseException;
+import com.seewo.mis.common.exception.BaseException;
 import lombok.extern.slf4j.Slf4j;
 
 /**

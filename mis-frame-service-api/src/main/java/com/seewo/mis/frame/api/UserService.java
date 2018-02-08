@@ -1,6 +1,6 @@
 package com.seewo.mis.frame.api;
 
-import com.seewo.mis.frame.BaseResponse;
+import com.seewo.mis.common.response.BaseResponse;
 import com.seewo.mis.frame.dto.UserInfoDto;
 
 import javax.validation.constraints.Max;
@@ -24,21 +24,21 @@ public interface UserService {
     BaseResponse getAllUserList();
 
 
+    @interface GetUserById {}
     /**
      * 获取所有的app列表
      *
      * @param id 用户ID
      * @return 用户信息
      */
-    @interface GetUserById {}
     BaseResponse getUserById(@Min(value = 100000000000000000L, message = "id不能小于100000000000000000")
                              @Max(value = 999999999999999999L, message = "id不能大于999999999999999999") BigInteger id);
 
+    @interface AddUser {}
     /**
      * 新增用户
      *
      * @param userInfoDto 用户信息
      */
-    @interface AddUser {}
     BaseResponse addUser(UserInfoDto userInfoDto);
 }

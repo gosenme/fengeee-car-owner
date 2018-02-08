@@ -1,9 +1,9 @@
 package com.seewo.mis.frame.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.seewo.mis.frame.BaseResponse;
+import com.seewo.mis.common.response.BaseResponse;
+import com.seewo.mis.common.util.ModelMapperUtils;
 import com.seewo.mis.frame.api.UserService;
-import com.seewo.mis.frame.common.util.ModelMapperUtils;
 import com.seewo.mis.frame.dal.entity.UserInfoEntity;
 import com.seewo.mis.frame.dal.mapper.UserInfoMapper;
 import com.seewo.mis.frame.dto.UserInfoDto;
@@ -17,6 +17,7 @@ import java.util.List;
 
 import static com.seewo.mis.frame.constant.ErrorsEnum.EXCEPTION;
 import static com.seewo.mis.frame.constant.ErrorsEnum.FAILED_TO_GET_LOCK;
+import static com.seewo.mis.frame.constant.ErrorsEnum.SUCCESS;
 
 /**
  * app业务实现类
@@ -49,12 +50,12 @@ public class UserServiceImpl implements UserService {
         try {
             List<UserInfoDto> allUsers = redisService.getObjectCache("allUsers", List.class);
             if (allUsers != null) {
-                return new BaseResponse(allUsers);
+                return new BaseResponse(SUCCESS, allUsers);
             } else {
                 List<UserInfoEntity> list = userInfoMapper.selectAll();
                 allUsers = ModelMapperUtils.mapList(list, UserInfoDto.class);
                 redisService.cacheObject("allUsers", allUsers);
-                return new BaseResponse(allUsers);
+                return new BaseResponse(SUCCESS, allUsers);
             }
         } catch (Exception e) {
             log.error("获取所有用户信息异常:{}", e);
@@ -72,7 +73,7 @@ public class UserServiceImpl implements UserService {
     public BaseResponse getUserById(@Validated BigInteger id) {
         try {
             UserInfoEntity userInfo = userInfoMapper.selectByPrimaryKey(id);
-            return new BaseResponse(userInfo);
+            return new BaseResponse(SUCCESS,userInfo);
         } catch (Exception e) {
             log.error("通过主键获取用户信息:{}", e);
             return new BaseResponse(EXCEPTION, "通过主键获取用户信息");
@@ -92,9 +93,9 @@ public class UserServiceImpl implements UserService {
             if (!haveLock) {
                 return new BaseResponse(FAILED_TO_GET_LOCK, "新增用户获取分布式锁失败");
             }
-            UserInfoEntity entity = ModelMapperUtils.map(userInfoDto, UserInfoEntity.class,true);
+            UserInfoEntity entity = ModelMapperUtils.map(userInfoDto, UserInfoEntity.class, true);
             userInfoMapper.insert(entity);
-            return new BaseResponse();
+            return new BaseResponse(SUCCESS);
         } catch (Exception e) {
             log.error("新增一个用户异常:{}", e);
             return new BaseResponse(EXCEPTION, "新增一个用户异常");
