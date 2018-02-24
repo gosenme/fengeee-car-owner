@@ -30,6 +30,7 @@
             <artifactId>javax.el-api</artifactId>
         </dependency>
     </dependencies>
+
     <build>
         <finalName>mis-frame-service-api</finalName>
         <plugins>

@@ -14,30 +14,6 @@
 
     <dependencies>
         <!--spring boot-->
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>org.springframework.boot</artifactId>
-                    <groupId>spring-boot-starter-logging</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>org.springframework.boot</artifactId>
-                    <groupId>spring-boot-starter-logging</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>logback-classic</artifactId>
-                    <groupId>ch.qos.logback</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
@@ -83,12 +59,8 @@
                     <groupId>com.alibaba</groupId>
                 </exclusion>
                 <exclusion>
-                    <artifactId>
-                        zookeeper
-                    </artifactId>
-                    <groupId>
-                        org.apache.zookeeper
-                    </groupId>
+                    <artifactId>zookeeper</artifactId>
+                    <groupId>org.apache.zookeeper</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
