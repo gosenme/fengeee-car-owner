@@ -28,6 +28,7 @@ import static com.seewo.mis.frame.constant.ErrorsEnum.SUCCESS;
  */
 @Slf4j
 @Service(validation = "true")
+@org.springframework.stereotype.Service
 public class UserServiceImpl implements UserService {
 
     private static final Long LOCK_EXPIRE_TIME = 5000L;
@@ -73,7 +74,7 @@ public class UserServiceImpl implements UserService {
     public BaseResponse getUserById(@Validated BigInteger id) {
         try {
             UserInfoEntity userInfo = userInfoMapper.selectByPrimaryKey(id);
-            return new BaseResponse(SUCCESS,userInfo);
+            return new BaseResponse(SUCCESS, userInfo);
         } catch (Exception e) {
             log.error("通过主键获取用户信息:{}", e);
             return new BaseResponse(EXCEPTION, "通过主键获取用户信息");
@@ -87,22 +88,13 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public BaseResponse addUser(@Validated UserInfoDto userInfoDto) {
-        String requestId = userInfoDto.getTraceId();
-        boolean haveLock = redisService.lock("addUser", requestId, LOCK_EXPIRE_TIME);
         try {
-            if (!haveLock) {
-                return new BaseResponse(FAILED_TO_GET_LOCK, "新增用户获取分布式锁失败");
-            }
             UserInfoEntity entity = ModelMapperUtils.map(userInfoDto, UserInfoEntity.class, true);
             userInfoMapper.insert(entity);
             return new BaseResponse(SUCCESS);
         } catch (Exception e) {
             log.error("新增一个用户异常:{}", e);
             return new BaseResponse(EXCEPTION, "新增一个用户异常");
-        } finally {
-            if (haveLock) {
-                redisService.unLock("addUser", requestId);
-            }
         }
     }
 

@@ -14,6 +14,7 @@
         <module>mis-frame-dal</module>
         <module>mis-frame-service-api</module>
         <module>mis-frame-service</module>
+        <module>mis-frame-web</module>
     </modules>
 
     <!--spring-boot-->
@@ -78,6 +79,7 @@
         <fastjson.version>1.2.41</fastjson.version>
         <log4j-api.version>2.7</log4j-api.version>
         <seewo-mis-common.version>1.0-SNAPSHOT</seewo-mis-common.version>
+        <mis-frame-id-worker-boot-starter.version>0.0.2</mis-frame-id-worker-boot-starter.version>
     </properties>
 
     <dependencyManagement>
@@ -97,6 +99,16 @@
                 <groupId>com.seewo.mis.frame</groupId>
                 <artifactId>mis-frame-common</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.seewo.mis.frame</groupId>
+                <artifactId>mis-frame-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.seewo.mis</groupId>
+                <artifactId>mis-frame-id-worker-boot-starter</artifactId>
+                <version>${mis-frame-id-worker-boot-starter.version}</version>
             </dependency>
             <!-- lombok-->
             <dependency>

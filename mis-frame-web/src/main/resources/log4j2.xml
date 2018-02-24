@@ -11,12 +11,12 @@
             <PatternLayout pattern="${PATTERN}" />
         </Console>
 
-        <RollingFile name="InfoFile" fileName="${LOG_DIRECTORY}/mis-frame-service-info.log" filePattern="${LOG_DIRECTORY}/info-%d{yyyy-MM-dd}.log">
+        <RollingFile name="InfoFile" fileName="${LOG_DIRECTORY}/mis-frame-service-info.log" filePattern="${LOG_DIRECTORY}/mis-frame-service-info-%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="${PATTERN}" />
             <TimeBasedTriggeringPolicy />
         </RollingFile>
 
-        <RollingFile name="ErrorFile" fileName="${LOG_DIRECTORY}/mis-frame-service-error.log" filePattern="${LOG_DIRECTORY}/error-%d{yyyy-MM-dd}.log">
+        <RollingFile name="ErrorFile" fileName="${LOG_DIRECTORY}/mis-frame-service-error.log" filePattern="${LOG_DIRECTORY}/mis-frame-service-error-%d{yyyy-MM-dd}.log">
             <Filters>
                 <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL" />
                 <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY" />

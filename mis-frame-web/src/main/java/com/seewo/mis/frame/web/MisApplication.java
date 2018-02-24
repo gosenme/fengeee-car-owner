@@ -1,12 +1,9 @@
-package com.seewo.mis.frame;
+package com.seewo.mis.frame.web;
 
-import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-
-import java.io.IOException;
 
 /**
  * 项目启动主类
@@ -15,7 +12,6 @@ import java.io.IOException;
  * Date: 2017-11-30
  * @version 1.0
  */
-@Slf4j
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.seewo.mis"})
 @MapperScan("com.seewo.mis.frame.dal.mapper")
@@ -28,12 +24,6 @@ public class MisApplication {
      */
     public static void main(String[] args) {
         SpringApplication.run(MisApplication.class, args);
-        try {
-            System.in.read();
-            log.info("project Startup success ");
-        } catch (IOException e) {
-            log.error("project Startup failed ");
-        }
     }
 
 }
