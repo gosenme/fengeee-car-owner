@@ -1,18 +1,16 @@
 package com.seewo.mis.frame.web.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.seewo.mis.common.response.BaseResponse;
 import com.seewo.mis.frame.api.UserService;
-import com.seewo.mis.frame.dto.UserInfoDto;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigInteger;
+
 
 /**
  * @author : wanggaoxiang@cvte.com
@@ -23,16 +21,19 @@ import java.math.BigInteger;
 @RestController
 @RequestMapping("/user/v1")
 public class UserController {
-    @Autowired
+    //@Autowired
+    //private UserService userService;
+    @Reference
     private UserService userService;
 
     @GetMapping(value = "/{userId}")
     public BaseResponse getUserById(@PathVariable String userId) {
+        //return userService.getUserById(new BigInteger(userId));
         return userService.getUserById(new BigInteger(userId));
     }
 
-    @PutMapping(value = "/addUser")
+    /*@PutMapping(value = "/addUser")
     public BaseResponse addUser(@RequestBody UserInfoDto userInfoDto) {
         return userService.addUser(userInfoDto);
-    }
+    }*/
 }
