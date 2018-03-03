@@ -67,9 +67,6 @@
               <Class-Path>.</Class-Path>
             </manifestEntries>
           </archive>
-          <excludes>
-            <exclude>config/</exclude>
-          </excludes>
         </configuration>
       </plugin>
       <plugin>
