@@ -61,7 +61,7 @@ public class MisDubboConsumerLogFilter implements Filter {
             }
         } else {
             String resultJson = JSON.toJSONString(ObjectUtils.defaultIfNull(result.getValue(), ""));
-            if (resultJson != null && resultJson.length() > LOG_MAX_LENGTH) {
+            if (resultJson.length() > LOG_MAX_LENGTH) {
                 log.info("s_dubbo:{}ms {}.{}: argLen:{} ret:{}", invokeTime, invocation.getInvoker().getInterface().getSimpleName(), invocation.getMethodName(), resultJson.length(), resultJson.substring(0, LOG_MAX_LENGTH));
             } else {
                 log.info("s_dubbo:{}ms {}.{}: ret:{}", invokeTime, invocation.getInvoker().getInterface().getSimpleName(), invocation.getMethodName(), resultJson);

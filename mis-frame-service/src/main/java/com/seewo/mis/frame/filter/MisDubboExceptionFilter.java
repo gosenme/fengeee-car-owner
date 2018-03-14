@@ -31,9 +31,7 @@ public class MisDubboExceptionFilter implements Filter {
             result.getException().setStackTrace(new StackTraceElement[]{});
             return new RpcResult(exception);
         }
-
         return result;
-
     }
 
 }

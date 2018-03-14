@@ -46,8 +46,8 @@ public class MisDubboProviderLogFilter implements Filter {
         log.info("{}端,接口:{} 方法:{} , 入参:{}",Constants.PROVIDER, invocation.getInvoker().getInterface(), invocation.getMethodName(),invocation.getArguments());
         long start = System.currentTimeMillis();
         Result result = invoker.invoke(invocation);
+        long invokeTime = System.currentTimeMillis() - start;
         if (result.hasException()) {
-            long invokeTime = System.currentTimeMillis() - start;
             if ((result.getException() instanceof BaseException) || (result.getException().getCause() instanceof BaseException)) {
                 log.info("{}端,耗时:{}ms,业务异常信息:{}", Constants.PROVIDER, invokeTime, result.getException().getCause());
             } else {
@@ -65,7 +65,6 @@ public class MisDubboProviderLogFilter implements Filter {
                 }
             }
         } else {
-            long invokeTime = System.currentTimeMillis() - start;
             String resultJson = JSON.toJSONString(ObjectUtils.defaultIfNull(result.getValue(), ""));
             if (resultJson.length() > LOG_MAX_LENGTH) {
                 log.info("{}端,接口:{},方法:{},耗时:{},请求结果:{},结果长度:{}",Constants.PROVIDER, invocation.getInvoker().getInterface(), invocation.getMethodName(),invokeTime,resultJson.substring(0, LOG_MAX_LENGTH), resultJson.length());
