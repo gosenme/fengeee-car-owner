@@ -23,7 +23,7 @@ import java.math.BigInteger;
 public class UserController {
     //@Autowired
     //private UserService userService;
-    @Reference
+    @Reference(check = false)
     private UserService userService;
 
     @GetMapping(value = "/{userId}")

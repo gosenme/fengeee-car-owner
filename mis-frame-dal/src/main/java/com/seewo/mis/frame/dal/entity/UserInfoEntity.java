@@ -1,9 +1,9 @@
 package com.seewo.mis.frame.dal.entity;
 
-import com.seewo.ColumnPrex;
 import com.seewo.base.LogicDelete;
-import com.seewo.keygenerator.KeyGenerator;
 import com.seewo.mis.frame.dal.base.SnowKeyGenerator;
+import com.seewo.mybatis.annotation.ColumnPrex;
+import com.seewo.mybatis.keygenerator.KeyGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

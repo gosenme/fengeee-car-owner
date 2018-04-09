@@ -1,7 +1,7 @@
-#MIS-FRAME-SERVER
+#SEEWO-MIS-FRAME
 
 ##项目介绍
-mis-frame-server是mis团队试行的非web项目项目.
+seewo-mis-frame是mis团队试行的脚手架项目.
 项目目的:
 1.统一规范
 2.统一技术栈
@@ -9,7 +9,7 @@ mis-frame-server是mis团队试行的非web项目项目.
 4.节省没必要的重复工作
 ###项目工程结构
 ```lua
-seewo-mis-frame-server
+seewo-mis-frame
 |--mis-frame-common --功能模块
    |---constant
    |---exception
@@ -22,8 +22,10 @@ seewo-mis-frame-server
    |---dto
 |--mis-frame-service --业务实现层
    |---service
+|--mis-frame-web --restful接口层
+   |---controller
 ```
-mis后台项目命名规范："seewo-mis-"固定前缀 + 业务相关的名称 如：seewo-mis-frame-server
+mis后台项目命名规范："seewo-mis-"固定前缀 + 业务相关的名称 如：seewo-mis-frame
 项目内模块命名规范:mis + "业务相关的名称,和项目对应" + 指定的后缀 如:mis-frame-common,具体参照以上项目结构
 没什么特殊要求建议定义四个模块即可(common , dal, service-api,service)
 模块间的依赖关系:

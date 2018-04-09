@@ -1,7 +1,7 @@
 package com.seewo.mis.frame.dal.mapper;
 
-import com.seewo.mapper.CommonMapper;
 import com.seewo.mis.frame.dal.entity.UserInfoEntity;
+import com.seewo.mybatis.mapper.CommonMapper;
 
 import java.math.BigInteger;
 
