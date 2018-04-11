@@ -79,7 +79,7 @@
         <fastjson.version>1.2.41</fastjson.version>
         <log4j-api.version>2.7</log4j-api.version>
         <seewo-mis-common.version>1.0-SNAPSHOT</seewo-mis-common.version>
-        <mis-frame-id-worker-boot-starter.version>0.0.2</mis-frame-id-worker-boot-starter.version>
+        <mis-frame-id-worker-boot-starter.version>0.0.7-SNAPSHOT</mis-frame-id-worker-boot-starter.version>
     </properties>
 
     <dependencyManagement>
