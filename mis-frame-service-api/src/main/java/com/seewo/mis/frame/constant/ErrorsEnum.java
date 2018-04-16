@@ -34,22 +34,18 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum ErrorsEnum implements BaseErrorEnum{
-    /**请求成功*/
-    SUCCESS("000000", "success"),
     /**入参校验失败*/
-    REQUEST_PARAMS_NOT_VALID("010000", "Request Params Illegal"),
+    REQUEST_PARAMS_NOT_VALID("0100", "Request Params Illegal"),
     /**获取分布式锁失败*/
-    FAILED_TO_GET_LOCK("010001", "Failed to get the lock"),
+    FAILED_TO_GET_LOCK("0101", "Failed to get the lock"),
     /**新增用户信息异常*/
-    INSERT_USER_INFO_FAIL("010100", "add user info fail"),
+    INSERT_USER_INFO_FAIL("0102", "add user info fail"),
     /**获取用户信息失败*/
-    GET_USER_LIST_FAIL("010101", "get user list fail"),
+    GET_USER_LIST_FAIL("0103", "get user list fail"),
     /**获取雪花ID失败*/
-    GET_SNOWFLAKE_FAIL("990000", "get user list fail"),
+    GET_SNOWFLAKE_FAIL("9901", "get user list fail"),
     /**找不到匹配的枚举下标*/
-    STRING_CONVERSION_TO_ENUM_FAIL("990001", "找不到匹配的枚举下标"),
-    /**请求异常,一些未知的错误*/
-    EXCEPTION("999999", "exception");
+    STRING_CONVERSION_TO_ENUM_FAIL("9902", "找不到匹配的枚举下标");
 
     private String    code;
     private String message;
