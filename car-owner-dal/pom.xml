@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>mis-frame-dal</artifactId>
+    <artifactId>car-owner-dal</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -19,10 +19,10 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!--mis-frame-->
+        <!--car-owner-->
         <dependency>
-            <groupId>com.seewo.mis.frame</groupId>
-            <artifactId>mis-frame-common</artifactId>
+            <groupId>com.fengeee.car.owner</groupId>
+            <artifactId>car-owner-common</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.curator</groupId>
@@ -42,7 +42,7 @@
     </dependencies>
 
     <build>
-        <finalName>mis-frame-dal</finalName>
+        <finalName>car-owner-dal</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>

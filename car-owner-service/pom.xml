@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>mis-frame-service</artifactId>
+    <artifactId>car-owner-service</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -18,10 +18,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
-        <!--mis-frame-->
+        <!--car-owner-->
         <dependency>
-            <groupId>com.seewo.mis.frame</groupId>
-            <artifactId>mis-frame-dal</artifactId>
+            <groupId>com.fengeee.car.owner</groupId>
+            <artifactId>car-owner-dal</artifactId>
         </dependency>
         <!--dubbo-->
         <dependency>
@@ -82,10 +82,14 @@
             <groupId>com.seewo.mis</groupId>
             <artifactId>mis-frame-redis-boot-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.influxdb</groupId>
+            <artifactId>influxdb-java</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>mis-frame-service</finalName>
+        <finalName>car-owner-service</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>

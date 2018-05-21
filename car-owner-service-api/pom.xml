@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>mis-frame-service-api</artifactId>
+    <artifactId>car-owner-service-api</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -29,10 +29,14 @@
             <groupId>javax.el</groupId>
             <artifactId>javax.el-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>mis-frame-service-api</finalName>
+        <finalName>car-owner-service-api</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>

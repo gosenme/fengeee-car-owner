@@ -1,6 +1,7 @@
 package com.fengeee.car.owner.dal.mapper;
 
-import com.seewo.mis.frame.dal.entity.UserInfoEntity;
+
+import com.fengeee.car.owner.dal.entity.UserInfoEntity;
 import com.seewo.mybatis.mapper.CommonMapper;
 
 import java.math.BigInteger;

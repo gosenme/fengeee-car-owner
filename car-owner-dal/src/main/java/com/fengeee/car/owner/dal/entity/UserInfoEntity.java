@@ -1,9 +1,9 @@
 package com.fengeee.car.owner.dal.entity;
 
 import com.seewo.base.LogicDelete;
-import com.seewo.mis.frame.dal.base.SnowKeyGenerator;
 import com.seewo.mybatis.annotation.ColumnPrex;
 import com.seewo.mybatis.keygenerator.KeyGenerator;
+import com.seewo.mybatis.plus.SnowKeyGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

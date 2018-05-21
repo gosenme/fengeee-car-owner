@@ -3,18 +3,18 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.seewo.mis.frame</groupId>
-    <artifactId>seewo-mis-frame</artifactId>
+    <groupId>com.fengeee.car.owner</groupId>
+    <artifactId>fengeee-car-owner</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mis-frame</name>
+    <name>car-owner</name>
 
     <modules>
-        <module>mis-frame-common</module>
-        <module>mis-frame-dal</module>
-        <module>mis-frame-service-api</module>
-        <module>mis-frame-service</module>
-        <module>mis-frame-web</module>
+        <module>car-owner-common</module>
+        <module>car-owner-dal</module>
+        <module>car-owner-service-api</module>
+        <module>car-owner-service</module>
+        <module>car-owner-web</module>
     </modules>
 
     <!--spring-boot-->
@@ -64,7 +64,7 @@
         <slf4j-api.version>1.7.25</slf4j-api.version>
         <annotations.version>15.0</annotations.version>
         <dubbo.version>2.8.5</dubbo.version>
-        <mybatis-spring-boot-starter.version>1.3.4-SNAPSHOT</mybatis-spring-boot-starter.version>
+        <mybatis-spring-boot-starter.version>1.3.5-SNAPSHOT</mybatis-spring-boot-starter.version>
         <modelmapper.version>1.1.1</modelmapper.version>
         <spring-boot-starter-dubbo.version>1.0.0</spring-boot-starter-dubbo.version>
         <commons-lang3.version>3.5</commons-lang3.version>
@@ -80,29 +80,31 @@
         <log4j-api.version>2.7</log4j-api.version>
         <seewo-mis-common.version>1.0-SNAPSHOT</seewo-mis-common.version>
         <mis-frame-id-worker-boot-starter.version>0.0.7-SNAPSHOT</mis-frame-id-worker-boot-starter.version>
+        <springfox.swagger2.version>2.7.0</springfox.swagger2.version>
+        <influxdb-java.version>2.8</influxdb-java.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!--mis-frame-->
+            <!--car-owner-->
             <dependency>
-                <groupId>com.seewo.mis.frame</groupId>
-                <artifactId>mis-frame-service-api</artifactId>
+                <groupId>com.fengeee.car.owner</groupId>
+                <artifactId>car-owner-service-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.seewo.mis.frame</groupId>
-                <artifactId>mis-frame-dal</artifactId>
+                <groupId>com.fengeee.car.owner</groupId>
+                <artifactId>car-owner-dal</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.seewo.mis.frame</groupId>
-                <artifactId>mis-frame-common</artifactId>
+                <groupId>com.fengeee.car.owner</groupId>
+                <artifactId>car-owner-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.seewo.mis.frame</groupId>
-                <artifactId>mis-frame-service</artifactId>
+                <groupId>com.fengeee.car.owner</groupId>
+                <artifactId>car-owner-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -212,6 +214,22 @@
                 <groupId>com.seewo.mis.common</groupId>
                 <artifactId>seewo-mis-common</artifactId>
                 <version>${seewo-mis-common.version}</version>
+            </dependency>
+            <!-- springfox-swagger2 -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox.swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox.swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.influxdb</groupId>
+                <artifactId>influxdb-java</artifactId>
+                <version>${influxdb-java.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -2,7 +2,7 @@
 <configuration>
 
     <properties>
-        <Property name="LOG_DIRECTORY">logs/mis-frame-service</Property>
+        <Property name="LOG_DIRECTORY">logs/car-owner-service</Property>
         <property name="PATTERN">[%d{yyyy-MM-dd HH:mm:ss.SSS ZZZ}] [%level] [%thread] [%F:%L] %X{traceId} %msg%n</property>
     </properties>
 
@@ -11,12 +11,12 @@
             <PatternLayout pattern="${PATTERN}" />
         </Console>
 
-        <RollingFile name="InfoFile" fileName="${LOG_DIRECTORY}/mis-frame-service-info.log" filePattern="${LOG_DIRECTORY}/mis-frame-service-info-%d{yyyy-MM-dd}.log">
+        <RollingFile name="InfoFile" fileName="${LOG_DIRECTORY}/car-owner-service-info.log" filePattern="${LOG_DIRECTORY}/car-owner-service-info-%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="${PATTERN}" />
             <TimeBasedTriggeringPolicy />
         </RollingFile>
 
-        <RollingFile name="ErrorFile" fileName="${LOG_DIRECTORY}/mis-frame-service-error.log" filePattern="${LOG_DIRECTORY}/mis-frame-service-error-%d{yyyy-MM-dd}.log">
+        <RollingFile name="ErrorFile" fileName="${LOG_DIRECTORY}/car-owner-service-error.log" filePattern="${LOG_DIRECTORY}/car-owner-service-error-%d{yyyy-MM-dd}.log">
             <Filters>
                 <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL" />
                 <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY" />

@@ -1,6 +1,5 @@
-package com.seewo.mis.frame.web;
+package com.fengeee.car.owner.web;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,9 +12,9 @@ import org.springframework.context.annotation.ComponentScan;
  * @version 1.0
  */
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.seewo.mis"})
-@MapperScan("com.seewo.mis.frame.dal.mapper")
-public class MisApplication {
+@ComponentScan(basePackages = {"com.fengeee.car","com.seewo.mis"})
+/*@MapperScan("com.seewo.mis.frame.dal.mapper")*/
+public class CarOwnerApplication {
 
     /**
      * 主类启动方法
@@ -23,7 +22,7 @@ public class MisApplication {
      * @param args args
      */
     public static void main(String[] args) {
-        SpringApplication.run(MisApplication.class, args);
+        SpringApplication.run(CarOwnerApplication.class, args);
     }
 
 }

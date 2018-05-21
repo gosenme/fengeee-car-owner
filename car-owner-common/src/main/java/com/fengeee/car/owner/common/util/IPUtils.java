@@ -8,8 +8,6 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
 
-import static com.seewo.mis.frame.common.constant.BaseConstant.WINDOWS_OS;
-
 /**
  * @author : wanggaoxiang@cvte.com
  * Date: 2017-12-12
