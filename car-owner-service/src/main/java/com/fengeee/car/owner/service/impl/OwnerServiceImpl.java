@@ -34,9 +34,7 @@ import static com.seewo.mis.common.exception.BaseErrorsEnum.SUCCESS;
 @Service
 public class OwnerServiceImpl implements OwnerService {
 
-    private static final DateTimeFormatter formatter  = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    private static final String            dbName     = "baeldung";
-    private              InfluxDB          connection = connectDatabase();
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     private InfluxDB connectDatabase() {
         return InfluxDBFactory.connect("http://47.254.21.68:8086", "admin", "admin");
@@ -45,9 +43,9 @@ public class OwnerServiceImpl implements OwnerService {
     @Override
     public BaseResponse addOwnerFromFile(String fileName) {
         try {
-            File file = new File("E:\\BaiduNetdiskDownload\\test.csv");
+            File file = new File("E:\\BaiduNetdiskDownload\\7.csv");
             CounterLine counter = new CounterLine();
-            Files.readLines(file, Charset.forName("UTF-8"), counter);
+            Files.readLines(file, Charset.forName("GBK"), counter);
             log.info("总行数:{}", counter.getResult());
         } catch (IOException e) {
             log.error("读取文件异常:{}", e);
@@ -60,7 +58,7 @@ public class OwnerServiceImpl implements OwnerService {
         private int rowNum = 0;
 
         @Override
-        public boolean processLine(String line) throws IOException {
+        public boolean processLine(String line) {
             if (rowNum == 0) {
                 rowNum++;
                 return true;
@@ -80,29 +78,24 @@ public class OwnerServiceImpl implements OwnerService {
                 time = LocalDateTime.parse(StringUtils.substring(list.get(20), 0, 19), formatter).toInstant(ZoneOffset.of("+8")).toEpochMilli();
             }
             int index = StringUtils.indexOf(temp, "-");
-            Point point = Point.measurement("car-owner")
+            InfluxDB connection = connectDatabase();
+            Point point = Point.measurement("carOwner")
                     .tag("city", StringUtils.substring(temp, 0, index))
-                    .time(time, TimeUnit.MILLISECONDS)
+                    .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
+                    .addField("createTime", time)
                     .addField("registerno", temp)
                     .addField("model", list.get(1))
-                    //.addField("sfx", list.get(2))
                     .addField("color", list.get(3))
                     .addField("vhcname", list.get(4))
                     .addField("grade", list.get(5))
                     .addField("engine", list.get(6))
-                    //.addField("salesdealercode", list.get(7))
-                    //.addField("crdealercode", list.get(8))
                     .addField("buyername", list.get(9))
-                    //.addField("buyerid", list.get(10))
                     .addField("buyeraddr", list.get(11))
                     .addField("buyertel1", list.get(12))
                     .addField("buyertel2", list.get(13))
                     .addField("buyerfax", list.get(14))
                     .addField("buyeremail", list.get(15))
-                    //.addField("latestsrvdate1", list.get(16))
-                    //.addField("nextsrvdate", list.get(17))
                     .addField("mileage", list.get(18))
-                    //.addField("vhcsalesdate", list.get(19))
                     .addField("credate", list.get(20))
                     .addField("nomineestreet", list.get(21))
                     .addField("nomineemobil1", list.get(22))
@@ -118,9 +111,9 @@ public class OwnerServiceImpl implements OwnerService {
                     .addField("latestsndcustname", list.get(32))
                     .addField("latestsndcusttel1", list.get(33))
                     .build();
-            connection.write(dbName, "defaultPolicy", point);
-            log.info("帐号信息:{}", point);
-
+            log.info("行号:{} 帐号信息:{}", rowNum,point);
+            connection.write("car", "defaultPolicy", point);
+            connection.close();
             rowNum++;
             return true;
         }
